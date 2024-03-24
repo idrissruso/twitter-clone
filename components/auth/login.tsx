@@ -15,8 +15,8 @@ import {
   Anchor,
   Stack,
 } from '@mantine/core'
-import { GoogleButton } from './googleBtn'
-import { TwitterButton } from './twitterBtn'
+import { GmailBtn } from './googleBtn'
+import { AppleBtn } from './twitterBtn'
 
 export default function AuthenticationForm(props: PaperProps) {
   const [type, toggle] = useToggle(['login', 'register'])
@@ -44,12 +44,12 @@ export default function AuthenticationForm(props: PaperProps) {
       </Text>
 
       <div className="flex flex-col">
-        <GoogleButton className="w-full" radius="xl">
-          Google
-        </GoogleButton>
-        <TwitterButton className="w-full" radius="xl">
-          Twitter
-        </TwitterButton>
+        <GmailBtn className="w-full" radius="xl">
+          Sign up with Gmail
+        </GmailBtn>
+        <AppleBtn className="w-full" radius="xl">
+          Sign up with Apple
+        </AppleBtn>
       </div>
 
       <Divider label="Or continue with email" labelPosition="center" my="lg" />

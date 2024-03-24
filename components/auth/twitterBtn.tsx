@@ -1,7 +1,7 @@
 import { Button, ButtonProps } from '@mantine/core'
 import { AiFillApple } from 'react-icons/ai'
 
-export function TwitterButton(
+export function AppleBtn(
   props: ButtonProps & React.ComponentPropsWithoutRef<'button'>
 ) {
   return (
@@ -9,8 +9,8 @@ export function TwitterButton(
       leftSection={
         <AiFillApple
           style={{
-            width: 50,
-            height: 50,
+            width: 30,
+            height: 30,
           }}
         />
       }
