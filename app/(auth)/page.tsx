@@ -3,7 +3,7 @@ import AuthenticationForm from '@/components/auth/login'
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen w-full justify-center items-center bg-black">
+    <main className="flex min-h-screen gap-20 w-full justify-center items-center bg-black">
       <Logo />
       <AuthenticationForm />
     </main>

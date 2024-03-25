@@ -2,21 +2,9 @@
 
 import { useToggle, upperFirst } from '@mantine/hooks'
 import { useForm } from '@mantine/form'
-import {
-  TextInput,
-  PasswordInput,
-  Text,
-  Paper,
-  Group,
-  PaperProps,
-  Button,
-  Divider,
-  Checkbox,
-  Anchor,
-  Stack,
-} from '@mantine/core'
-import { GmailBtn } from './googleBtn'
-import { AppleBtn } from './twitterBtn'
+import { Text, Paper, PaperProps, Button, Divider } from '@mantine/core'
+import { AiFillApple } from 'react-icons/ai'
+import { FcGoogle } from 'react-icons/fc'
 
 export default function AuthenticationForm(props: PaperProps) {
   const [type, toggle] = useToggle(['login', 'register'])
@@ -38,91 +26,64 @@ export default function AuthenticationForm(props: PaperProps) {
   })
 
   return (
-    <Paper radius="md" p="xl" withBorder {...props} bg={'black'}>
-      <Text size="lg" fw={500}>
-        Welcome to Mantine, {type} with
-      </Text>
-
-      <div className="flex flex-col gap-2">
-        <Button variant="white" color="black" className="font-bold" radius="xl">
-          Sign up with Google
-        </Button>
-        <Button variant="white" color="black" className="font-bold" radius="xl">
-          Sign up with Apple
-        </Button>
-      </div>
-
-      <Divider label="Or continue with email" labelPosition="center" my="lg" />
-
-      <form onSubmit={form.onSubmit(() => {})}>
-        <Stack>
-          {type === 'register' && (
-            <TextInput
-              label="Name"
-              placeholder="Your name"
-              value={form.values.name}
-              onChange={(event) =>
-                form.setFieldValue('name', event.currentTarget.value)
-              }
-              radius="md"
-            />
-          )}
-
-          <TextInput
-            required
-            label="Email"
-            placeholder="hello@mantine.dev"
-            value={form.values.email}
-            onChange={(event) =>
-              form.setFieldValue('email', event.currentTarget.value)
+    <div>
+      <h1 className="text-7xl font-bold text-white mb-4">Happening now</h1>
+      <h2 className="text-white text-3xl font-bold mb-8">
+        Join <span>Twitter</span> today.
+      </h2>
+      <Paper
+        radius="md"
+        p="xl"
+        {...props}
+        bg={'black'}
+        className="max-w-[22rem]"
+      >
+        <div className="flex flex-col gap-2">
+          <Button
+            variant="white"
+            color="black"
+            className="font-bold"
+            radius="xl"
+            leftSection={
+              <FcGoogle
+                style={{
+                  width: 30,
+                  height: 30,
+                }}
+              />
             }
-            error={form.errors.email && 'Invalid email'}
-            radius="md"
-          />
-
-          <PasswordInput
-            required
-            label="Password"
-            placeholder="Your password"
-            value={form.values.password}
-            onChange={(event) =>
-              form.setFieldValue('password', event.currentTarget.value)
-            }
-            error={
-              form.errors.password &&
-              'Password should include at least 6 characters'
-            }
-            radius="md"
-          />
-
-          {type === 'register' && (
-            <Checkbox
-              label="I accept terms and conditions"
-              checked={form.values.terms}
-              onChange={(event) =>
-                form.setFieldValue('terms', event.currentTarget.checked)
-              }
-            />
-          )}
-        </Stack>
-
-        <Group justify="space-between" mt="xl">
-          <Anchor
-            component="button"
-            type="button"
-            c="dimmed"
-            onClick={() => toggle()}
-            size="xs"
           >
-            {type === 'register'
-              ? 'Already have an account? Login'
-              : "Don't have an account? Register"}
-          </Anchor>
-          <Button type="submit" radius="xl">
-            {upperFirst(type)}
+            Sign up with Google
           </Button>
-        </Group>
-      </form>
-    </Paper>
+          <Button
+            variant="white"
+            color="black"
+            className="font-bold"
+            radius="xl"
+            leftSection={
+              <AiFillApple
+                style={{
+                  width: 30,
+                  height: 30,
+                }}
+              />
+            }
+          >
+            Sign up with Apple
+          </Button>
+        </div>
+
+        <Divider label="Or" labelPosition="center" my="lg" />
+        <div className="flex flex-col gap-2">
+          <Button variant="filled" radius="xl" className="w-full">
+            Create Account
+          </Button>
+          <p className=" text-stone-400 text w-[17rem] text-sm">
+            By signing up, you agree to the <span>Terms of Service</span> and
+            <span>Privacy Policy</span>, including <span>Cookie Use</span>.
+          </p>
+        </div>
+      </Paper>
+    </div>
   )
 }
