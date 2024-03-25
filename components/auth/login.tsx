@@ -38,18 +38,18 @@ export default function AuthenticationForm(props: PaperProps) {
   })
 
   return (
-    <Paper radius="md" p="xl" withBorder {...props}>
+    <Paper radius="md" p="xl" withBorder {...props} bg={'black'}>
       <Text size="lg" fw={500}>
         Welcome to Mantine, {type} with
       </Text>
 
-      <div className="flex flex-col">
-        <GmailBtn className="w-full" radius="xl">
-          Sign up with Gmail
-        </GmailBtn>
-        <AppleBtn className="w-full" radius="xl">
+      <div className="flex flex-col gap-2">
+        <Button variant="white" color="black" className="font-bold" radius="xl">
+          Sign up with Google
+        </Button>
+        <Button variant="white" color="black" className="font-bold" radius="xl">
           Sign up with Apple
-        </AppleBtn>
+        </Button>
       </div>
 
       <Divider label="Or continue with email" labelPosition="center" my="lg" />

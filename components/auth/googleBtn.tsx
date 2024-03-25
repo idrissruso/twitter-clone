@@ -6,6 +6,7 @@ export function GmailBtn(
 ) {
   return (
     <Button
+      className="bg-white text-black font-semibold"
       leftSection={
         <FcGoogle
           style={{
