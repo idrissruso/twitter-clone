@@ -78,9 +78,15 @@ export default function AuthenticationForm(props: PaperProps) {
           <Button variant="filled" radius="xl" className="w-full">
             Create Account
           </Button>
-          <p className=" text-stone-400 text w-[17rem] text-sm">
-            By signing up, you agree to the <span>Terms of Service</span> and
-            <span>Privacy Policy</span>, including <span>Cookie Use</span>.
+          <p className=" text-white text w-[17rem] text-xs font-thin">
+            By signing up, you agree to the{' '}
+            <span className="text-blue-500 cursor-pointer">
+              Terms of Service
+            </span>{' '}
+            and
+            <span className="text-blue-400 cursor-pointer">Privacy Policy</span>
+            , including{' '}
+            <span className="text-blue-400 cursor-pointer">Cookie Use</span>.
           </p>
         </div>
       </Paper>
